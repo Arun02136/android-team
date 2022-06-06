@@ -56,7 +56,7 @@ workflows:
       email:
         recipients:
           - arunkumar02136@gmail.com
-          - user_2@example.com
+          - s.arunkumar413@gmail.com
         notify:
           success: true     # To not receive a notification when a build succeeds
           failure: false    # To not receive a notification when a build fails
