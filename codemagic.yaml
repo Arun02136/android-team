@@ -32,7 +32,7 @@ workflows:
           # EOF
       - name: Set up local.properties
         script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/app/build.gradel"
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/app/build.gradle"
       - name: Get Flutter packages
         script: |
           cd . && flutter packages pub get
