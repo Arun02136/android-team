@@ -10,7 +10,7 @@ workflows:
           # CM_KEYSTORE_PASSWORD <-- Put your keystore password here
           # CM_KEY_PASSWORD <-- Put your keystore alias password here
           # CM_KEY_ALIAS <-- Put your keystore alias username here
-        - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
+        - google_play(google-services.json) # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS - Put your google-services.json here)
         - other
       vars:
         FCI_KEYSTORE_PATH: /tmp/keystore.keystore
@@ -32,7 +32,7 @@ workflows:
           # EOF
       - name: Set up local.properties
         script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/app/build.gradle"
       - name: Get Flutter packages
         script: |
           cd . && flutter packages pub get
@@ -67,7 +67,7 @@ workflows:
         notify:
           success: true               # To not receive a notification when a build succeeds
           failure: false              # To not receive a notification when a build fails
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        in_app_update_priority: 0
+      #google_play:
+       # credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        #track: $GOOGLE_PLAY_TRACK
+        #in_app_update_priority: 0
